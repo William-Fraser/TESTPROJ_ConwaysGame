@@ -68,12 +68,12 @@ namespace ConwaysGameOfLife
             }
         }
 
-        public void GenerateLife()
+        public void GenerateLife() // create active world
         { 
             
         }
 
-        public void LiveLife()
+        public void LiveLife() // creates new world from active world using the rules of life itself
         { 
         
         }

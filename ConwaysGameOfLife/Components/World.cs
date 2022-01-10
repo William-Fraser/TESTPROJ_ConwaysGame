@@ -10,11 +10,11 @@ namespace ConwaysGameOfLife
     {
         private struct Map 
         {
-            public int[,] map { get; set; }
+            public char[,] map { get; set; }
 
             public Map(int size)
             {
-                map = new int[size, size];
+                map = new char[size, size];
             }
         }
 
@@ -28,12 +28,44 @@ namespace ConwaysGameOfLife
 
             activeWorld = new Map(inputSize);
             newWorld = new Map(inputSize);
-            border = new Map(inputSize+2);
+            border = new Map(inputSize+2); // MN#+2 to add borders on all sides
         }
 
         public void CreateBorder()
-        { 
-            
+        {
+            for (int y = 0; y == border.map.GetLength(0); y++) 
+            {
+                for (int x = 0; x == border.map.GetLength(0); x++) // the length is the same for both indexers
+                { 
+                    if (y == 0 || y == border.map.GetLength(0) || x == 0 || x == border.map.GetLength(1))
+                    {
+                        if (y == 0 || y == border.map.GetLength(0))
+                        {
+                            border.map[y, x] = '═';
+                        }
+                        else if (x == 0 || x == border.map.GetLength(0))
+                        {
+                            border.map[y, x] = '║';
+                        }
+                        else if (y == 0 || x == 0)
+                        {
+                            border.map[y, x] = '╔';
+                        }
+                        else if (y == 0 || x == border.map.GetLength(0))
+                        {
+                            border.map[y, x] = '╗';
+                        }
+                        else if (y == border.map.GetLength(0) || x == 0)
+                        {
+                            border.map[y, x] = '╚';
+                        }
+                        else if (y == border.map.GetLength(0) || x == border.map.GetLength(0))
+                        {
+                            border.map[y, x] = '╝';
+                        }
+                    }
+                }
+            }
         }
 
         public void GenerateLife()

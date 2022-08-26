@@ -14,7 +14,15 @@ namespace ConwaysGameOfLife
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Begin Conways Game Of Life\n\nCoded by William Fraser");
+            Console.WriteLine("Programed by William Fraser.");
+            
+            //Console.WriteLine("Instructions \n ... "); << user input rules // how to play
+            
+            Console.WriteLine("\n\nPress any key to begin Conways Game Of Life.");
+
+            Console.ReadKey(true);
+
+
 
             Console.ReadKey();
             Console.Clear();

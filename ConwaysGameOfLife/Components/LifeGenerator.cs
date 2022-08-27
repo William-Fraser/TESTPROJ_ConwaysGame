@@ -8,15 +8,15 @@ namespace ConwaysGameOfLife
 {
     public class LifeGenerator
     {
-        Random random = new Random(); // class used for deciding generation
+        private Random random = new Random(); // class level variable used, to not lose random rate
 
-        public bool CreateLife(int worldSize, int chanceOfLife)
+        public Life CreateLife(int worldSize, int chanceOfLife)
         {
-            bool life = false; // life starts as nothing;
+            Life life = new Life();
 
             if (LifeCreated(worldSize, chanceOfLife))
             {
-                life = true; // life is made
+                life.Live(); // life is made
             }
 
             return life;
@@ -24,8 +24,8 @@ namespace ConwaysGameOfLife
 
         private bool LifeCreated(int worldSize, int chanceOfLife)
         {
-            int chance = random.Next(0, worldSize);
-            return chanceOfLife > chance; // if the cOL is greater than c, life is within chance and is created
+            int chance = random.Next(0, 10);
+            return chanceOfLife > chance; // if the cOL is greater than c, life is created
         }
     }
 }
